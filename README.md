@@ -49,4 +49,11 @@
   - [W3Schools](https://www.w3schools.com/) - Javascript methods and syntax
   - [Stack Overflow](https://stackoverflow.com/) - Regex methods
   - [ChatGPT (OpenAI)](https://chatgpt.com/) - Assisted in explaing Next.js file structure and routing I wasn't familiar with.
-# url-shortener-app
+
+## Future Enhancements
+
+I took the two hours to complete what I have. If I put more time into this, I would:
+
+- Add more validation to the URL input
+- Add loading animations to the form submit button
+- Take more time to style the page
