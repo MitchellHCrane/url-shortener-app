@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# URL Shortener App
 
-## Getting Started
+## Implementation Details
 
-First, run the development server:
+- **Next.js**: The application leverages Next.js for server-side rendering and routing, utilizing the new `app` directory structure for improved organization and performance.
+- **Tailwind CSS**: The UI is styled using Tailwind CSS, which provides utility-first styling capabilities that allow for rapid and responsive design.
+- **Local Storage**: The application stores the original URLs associated with the shortened random strings in the browser’s local storage for quick retrieval during redirection.
+- **Dynamic Routing**: Utilizes Next.js's dynamic routing feature to create unique paths for each shortened URL, making it easy to access the original URLs.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## How to Run
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone the Repository**:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```
 
-## Learn More
+2. **Install Dependencies**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. **Start the Development Server**:
 
-## Deploy on Vercel
+   ```bash
+   npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. **Access the Application**:
+   Open your browser and navigate to http://localhost:3000 to view the application.
+
+## Testing
+
+- Ensure that all necessary dependencies are installed and the development server is running.
+- You can manually test the application by entering various URLs to verify that they are shortened and redirected to the correct page. Testing Examples: submit without a url, submit with an invalid url, submit with a valid url.
+- Automated testing not implemented in this project, but recommended for future enhancements.
+
+## Tools Used
+
+- **Next.js**: [https://nextjs.org/](https://nextjs.org/)
+- **Tailwind CSS**: [https://tailwindcss.com/](https://tailwindcss.com/)
+- **Resources**:
+  - [MDN Web Docs](https://developer.mozilla.org/en-US/) - Javascript methods and syntax
+  - [W3Schools](https://www.w3schools.com/) - Javascript methods and syntax
+  - [Stack Overflow](https://stackoverflow.com/) - Regex methods
+  - [ChatGPT (OpenAI)](https://chatgpt.com/) - Assisted in explaing Next.js file structure and routing I wasn't familiar with.
+# url-shortener-app

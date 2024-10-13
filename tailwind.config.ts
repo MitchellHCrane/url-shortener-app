@@ -9,6 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        leland: "#1CB078",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
