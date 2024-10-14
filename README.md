@@ -3,6 +3,7 @@
 ## Implementation Details
 
 - **Next.js**: The application leverages Next.js for server-side rendering and routing, utilizing the new `app` directory structure for improved organization and performance.
+- **Typscript**: TypeScript is used for enhanced code quality and maintainability.
 - **Tailwind CSS**: The UI is styled using Tailwind CSS, which provides utility-first styling capabilities that allow for rapid and responsive design.
 - **Local Storage**: The application stores the original URLs associated with the shortened random strings in the browser’s local storage for quick retrieval during redirection.
 - **Dynamic Routing**: Utilizes Next.js's dynamic routing feature to create unique paths for each shortened URL, making it easy to access the original URLs.
@@ -55,5 +56,5 @@
 I took the two hours to complete what I have. If I put more time into this, I would:
 
 - Add more validation to the URL input
-- Add loading animations to the form submit button
+- Add loading animations to the form submit button/hover states
 - Take more time to style the page
