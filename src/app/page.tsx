@@ -7,12 +7,19 @@ export default function Home() {
   const [url, setUrl] = useState<string>("");
   const [shortUrl, setShortUrl] = useState<string | null>(null);
   const [urlErr, setUrlErr] = useState<string>("");
+  const [customSlug, setCustomSlug] = useState<string>("");
 
   // -- Form Change Handler --/
   const formChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setShortUrl("");
     resetErr();
     setUrl(e.target.value.toLocaleLowerCase());
+  };
+
+  // -- Custom Slug Change Handler --/
+  const handleCustomSlug = (e: React.ChangeEvent<HTMLInputElement>) => {
+    resetErr();
+    setCustomSlug(e.target.value);
   };
 
   // -- Reset Error --/
@@ -32,16 +39,32 @@ export default function Home() {
     } else if (!url.match(/^https:\/\//)) {
       setUrlErr("Please enter a URL starting with https://");
     } else {
-      // Generate a random 8 character string
-      const randomString = Math.random().toString(36).substring(2, 10);
+      //Get values of localStorage
+      const existingShortUrls = Object.keys(localStorage);
 
-      // newly generated short URL
-      const newShortUrl = `${window.location.origin}/${randomString}`;
+      if (customSlug) {
+        for (let i = 0; i <= existingShortUrls.length; i++) {
+          if (existingShortUrls.includes(customSlug)) {
+            setUrlErr("Custom slug already exists");
+            return;
+          }
+        }
+        // Save the URL to local storage (key, value) and assign it to the random string
+        localStorage.setItem(customSlug, url);
+        // newly generated short URL
+        const newShortUrl = `${window.location.origin}/${customSlug}`;
+        setShortUrl(newShortUrl);
+      } else {
+        // Generate a random 8 character string
+        const randomString = Math.random().toString(36).substring(2, 10);
+        // Save the URL to local storage (key, value) and assign it to the random string
+        localStorage.setItem(randomString, url);
 
-      // Save the URL to local storage (key, value) and assign it to the random string
-      localStorage.setItem(randomString, url);
+        // newly generated short URL
+        const newShortUrl = `${window.location.origin}/${randomString}`;
 
-      setShortUrl(newShortUrl);
+        setShortUrl(newShortUrl);
+      }
     }
   };
 
@@ -54,6 +77,13 @@ export default function Home() {
       {/* Form  */}
       <section className="md:flex justify-center mt-8">
         <form onSubmit={handleUrlFormSubmit}>
+          <input
+            value={customSlug}
+            onChange={handleCustomSlug}
+            type="text"
+            placeholder="Optional Custom Slug"
+            className="w-full my-4 md:w-96 border-2 border-leland text-black rounded-md py-1 px-2"
+          />
           <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:gap-x-2">
             <input
               value={url}
